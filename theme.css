@@ -1,0 +1,169 @@
+/* 
+  ENgimate Theme Variables and Design System
+*/
+
+:root {
+  /* Color Tokens - Default Dark Mode (Futuristic/Neon) */
+  --bg-color-main: #0a0b10;
+  --bg-color-phone: #0e111a;
+  --bg-glass-card: rgba(18, 22, 35, 0.65);
+  --bg-glass-card-hover: rgba(25, 30, 48, 0.8);
+  --bg-glass-input: rgba(30, 37, 56, 0.5);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-glow: rgba(0, 240, 255, 0.25);
+  
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+  
+  /* Brand Theme Gradients */
+  --grad-electric: linear-gradient(135deg, #00f0ff 0%, #0072ff 100%);
+  --grad-purple: linear-gradient(135deg, #b000ff 0%, #6e00ff 100%);
+  --grad-teal: linear-gradient(135deg, #00f5d4 0%, #01baef 100%);
+  --grad-orange: linear-gradient(135deg, #ff9f1c 0%, #ff4d6d 100%);
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --grad-dark-mesh: radial-gradient(at 0% 0%, rgba(110, 0, 255, 0.15) 0px, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(0, 240, 255, 0.15) 0px, transparent 50%);
+
+  /* Neon Accent Solid Colors */
+  --color-electric: #00f0ff;
+  --color-purple: #b000ff;
+  --color-teal: #00f5d4;
+  --color-orange: #ff9f1c;
+  --color-red: #ff3838;
+  --color-green: #2ecc71;
+  
+  /* System Values */
+  --shadow-neon: 0 8px 32px 0 rgba(0, 240, 255, 0.15);
+  --shadow-purple: 0 8px 32px 0 rgba(176, 0, 255, 0.15);
+  --shadow-flat: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --glass-blur: blur(16px);
+  --border-radius-lg: 20px;
+  --border-radius-md: 12px;
+  --border-radius-sm: 8px;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Light Theme Variables */
+body.light-theme {
+  --bg-color-main: #f0f2f5;
+  --bg-color-phone: #ffffff;
+  --bg-glass-card: rgba(255, 255, 255, 0.7);
+  --bg-glass-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass-input: rgba(240, 242, 245, 0.8);
+  --border-glass: rgba(0, 0, 0, 0.06);
+  --border-glass-glow: rgba(0, 114, 255, 0.2);
+  
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+  --grad-dark-mesh: radial-gradient(at 0% 0%, rgba(110, 0, 255, 0.05) 0px, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(0, 240, 255, 0.05) 0px, transparent 50%);
+  
+  --shadow-neon: 0 8px 24px rgba(0, 114, 255, 0.08);
+  --shadow-purple: 0 8px 24px rgba(110, 0, 255, 0.08);
+  --shadow-flat: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --glass-blur: blur(20px);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-cyber {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-code {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Animations */
+@keyframes buddy-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+@keyframes buddy-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+@keyframes halo-glow {
+  0%, 100% { transform: scale(1); opacity: 0.4; filter: blur(4px); }
+  50% { transform: scale(1.15); opacity: 0.7; filter: blur(6px); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rotate-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes matrix-rain {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+@keyframes xp-boost {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.3); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Classes for custom animation */
+.animated-float {
+  animation: buddy-float 5s ease-in-out infinite;
+}
+
+.animated-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animated-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}

@@ -1,0 +1,485 @@
+/*
+  EngiMate Reusable UI Components Styling
+*/
+
+/* Glassmorphic Cards */
+.glass-card {
+  background: var(--bg-glass-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-flat);
+  transition: var(--transition-smooth);
+}
+
+.glass-card.interactive:hover {
+  background: var(--bg-glass-card-hover);
+  border-color: var(--border-glass-glow);
+  box-shadow: var(--shadow-neon);
+  transform: translateY(-2px);
+}
+
+.glass-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.glass-card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-electric);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.glass-card-title i {
+  width: 16px;
+  height: 16px;
+}
+
+/* Glass Inputs */
+.glass-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.glass-input-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.glass-input {
+  background-color: var(--bg-glass-input);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 13px;
+  transition: var(--transition-smooth);
+  width: 100%;
+  outline: none;
+}
+
+.glass-input:focus {
+  border-color: var(--color-electric);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+  background-color: rgba(30, 37, 56, 0.7);
+}
+
+.glass-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  text-decoration: none;
+  user-select: none;
+  outline: none;
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: var(--grad-electric);
+  color: var(--text-inverse);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+}
+
+.btn-purple {
+  background: var(--grad-purple);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(110, 0, 255, 0.3);
+}
+
+.btn-purple:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(110, 0, 255, 0.4);
+}
+
+.btn-teal {
+  background: var(--grad-teal);
+  color: var(--text-inverse);
+  box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3);
+}
+
+.btn-teal:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(0, 245, 212, 0.4);
+}
+
+.btn-orange {
+  background: var(--grad-orange);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 159, 28, 0.3);
+}
+
+.btn-orange:hover {
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--border-glass);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-icon-only {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Floating Study Buddy Widget styles */
+.study-buddy-container {
+  position: absolute;
+  bottom: 84px;
+  right: 18px;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* Buddy Speech Bubble */
+.buddy-bubble {
+  position: absolute;
+  bottom: 64px;
+  right: 0;
+  width: 200px;
+  background: var(--bg-glass-card-hover);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass-glow);
+  border-radius: 16px;
+  border-bottom-right-radius: 4px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow-neon);
+  opacity: 0;
+  transform: scale(0.8) translateY(10px);
+  transform-origin: bottom right;
+  transition: var(--transition-bounce);
+  pointer-events: none;
+}
+
+.buddy-bubble.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.bubble-text {
+  font-size: 11px;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.bubble-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.bubble-action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
+  color: var(--color-electric);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.bubble-action-btn:hover {
+  background: var(--color-electric);
+  color: var(--text-inverse);
+}
+
+/* Buddy Character Avatar */
+.study-buddy-avatar {
+  width: 52px;
+  height: 52px;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: buddy-float 4s ease-in-out infinite;
+}
+
+.buddy-halo {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.4) 0%, transparent 70%);
+  animation: halo-glow 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.buddy-core {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #00f0ff 0%, #0056b3 100%);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5), 
+              inset -4px -4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.buddy-eyes {
+  display: flex;
+  gap: 8px;
+  margin-top: -4px;
+  margin-bottom: 2px;
+}
+
+.buddy-eye {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: buddy-blink 5s infinite;
+}
+
+.pupil {
+  width: 4px;
+  height: 4px;
+  background-color: #0d1b2a;
+  border-radius: 50%;
+}
+
+.buddy-mouth {
+  width: 14px;
+  height: 4px;
+  border-bottom: 2px solid #ffffff;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.study-buddy-avatar.happy .buddy-mouth {
+  height: 6px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-top: -2px;
+}
+
+.study-buddy-avatar.thinking .buddy-mouth {
+  width: 6px;
+  height: 2px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 1px;
+}
+
+.buddy-badge {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background: var(--color-orange);
+  color: #fff;
+  font-size: 7px;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-radius: 4px;
+  z-index: 3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.toast-card {
+  background: rgba(18, 22, 35, 0.85);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-left: 4px solid var(--color-electric);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-flat);
+  animation: slide-up 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-card.xp {
+  border-left-color: var(--color-teal);
+  box-shadow: 0 4px 15px rgba(0, 245, 212, 0.15);
+}
+
+.toast-card.badge-unlock {
+  border-left-color: var(--color-purple);
+  box-shadow: 0 4px 15px rgba(176, 0, 255, 0.15);
+}
+
+.toast-card.warning {
+  border-left-color: var(--color-orange);
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-icon.xp { color: var(--color-teal); }
+.toast-icon.badge-unlock { color: var(--color-purple); }
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.toast-message {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.toast-card.fade-out {
+  opacity: 0;
+  transform: translate(-50%, -20px) scale(0.9);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Tabs switcher */
+.tab-group {
+  display: flex;
+  background-color: var(--bg-glass-input);
+  border-radius: var(--border-radius-md);
+  padding: 3px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-glass);
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.tab-btn.active {
+  background-color: var(--bg-color-phone);
+  color: var(--color-electric);
+  box-shadow: var(--shadow-flat);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.section-action {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-electric);
+  text-decoration: none;
+  cursor: pointer;
+}
