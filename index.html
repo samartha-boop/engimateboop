@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>EngiMate: The Ultimate Engineering Student Companion</title>
+  
+  <!-- Fonts: Orbitron for futuristic headers, Inter for readable UI, Fira Code for playground -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Styling Sheets -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+  <!-- Desktop Smartphone Wrapper -->
+  <div class="device-container">
+    <div class="phone-frame">
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <div class="status-time" id="status-clock">12:00</div>
+        <div class="notch"></div>
+        <div class="status-icons">
+          <i data-lucide="signal" class="status-icon"></i>
+          <i data-lucide="wifi" class="status-icon"></i>
+          <span class="battery-percent">92%</span>
+          <i data-lucide="battery-charging" class="status-icon"></i>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <button id="menu-btn" class="header-action-btn" aria-label="Open side menu">
+          <i data-lucide="menu"></i>
+        </button>
+        <div class="header-logo">
+          <span class="logo-text">Engi<span class="logo-highlight">Mate</span></span>
+        </div>
+        <button id="theme-toggle" class="header-action-btn" aria-label="Toggle theme">
+          <i data-lucide="sun" class="theme-icon-light"></i>
+          <i data-lucide="moon" class="theme-icon-dark"></i>
+        </button>
+      </header>
+
+      <!-- Swipeable Side Menu Drawer -->
+      <aside class="sidebar-drawer" id="sidebar-drawer">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <div class="sidebar-content">
+          <div class="sidebar-user-profile">
+            <div class="user-avatar-container">
+              <div class="user-avatar" id="sidebar-avatar">JD</div>
+              <div class="user-badge-level" id="sidebar-level">Lvl 1</div>
+            </div>
+            <div class="user-details">
+              <h3 id="sidebar-name">John Doe</h3>
+              <p id="sidebar-branch-sem">Computer Science • Sem 1</p>
+            </div>
+          </div>
+          
+          <div class="xp-progress-bar-container">
+            <div class="xp-label">
+              <span>XP Progress</span>
+              <span id="sidebar-xp-text">0 / 100 XP</span>
+            </div>
+            <div class="xp-bar">
+              <div class="xp-fill" id="sidebar-xp-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a href="#dashboard" class="sidebar-link active" data-page="dashboard">
+              <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+            </a>
+            <a href="#profile" class="sidebar-link" data-page="profile">
+              <i data-lucide="user"></i> <span>My Profile & Skills</span>
+            </a>
+            <a href="#roadmaps" class="sidebar-link" data-page="roadmaps">
+              <i data-lucide="git-branch"></i> <span>AI Career Roadmaps</span>
+            </a>
+            <a href="#courses" class="sidebar-link" data-page="courses">
+              <i data-lucide="book-open"></i> <span>Course Recommender</span>
+            </a>
+            <a href="#projects" class="sidebar-link" data-page="projects">
+              <i data-lucide="rocket"></i> <span>Engineering Projects</span>
+            </a>
+            <a href="#community" class="sidebar-link" data-page="community">
+              <i data-lucide="users"></i> <span>Student Community</span>
+            </a>
+            <a href="#internships" class="sidebar-link" data-page="internships">
+              <i data-lucide="briefcase"></i> <span>Internships & Hackathons</span>
+            </a>
+            <a href="#achievements" class="sidebar-link" data-page="achievements">
+              <i data-lucide="trophy"></i> <span>Achievements & Badges</span>
+            </a>
+          </nav>
+
+          <div class="sidebar-footer">
+            <div class="streak-counter-footer">
+              <i data-lucide="flame" class="streak-icon-fire"></i>
+              <span id="sidebar-streak-text">0 Day Streak</span>
+            </div>
+            <button id="logout-btn" class="sidebar-logout-btn">
+              <i data-lucide="log-out"></i> <span>Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Scrollable Screen Content -->
+      <main class="screen-content" id="screen-container">
+        <div id="app-view">
+          <!-- Dynamically Injected Screen Pages -->
+          <div class="screen-loading">
+            <div class="loader-spinner"></div>
+            <p>Initializing EngiMate...</p>
+          </div>
+        </div>
+      </main>
+
+      <!-- Floating Study Buddy Widget -->
+      <div class="study-buddy-container" id="study-buddy-container">
+        <div class="buddy-bubble" id="buddy-bubble">
+          <p class="bubble-text">Hey there! Ready to crush some engineering goals today? 🚀</p>
+          <div class="bubble-actions">
+            <button class="bubble-action-btn" id="buddy-bubble-chat">Let's Chat</button>
+            <button class="bubble-action-btn" id="buddy-bubble-dismiss">Dismiss</button>
+          </div>
+        </div>
+        <div class="study-buddy-avatar" id="study-buddy-avatar">
+          <div class="buddy-core">
+            <div class="buddy-eyes">
+              <div class="buddy-eye eye-left"><div class="pupil"></div></div>
+              <div class="buddy-eye eye-right"><div class="pupil"></div></div>
+            </div>
+            <div class="buddy-mouth"></div>
+          </div>
+          <div class="buddy-halo"></div>
+          <div class="buddy-badge">AI</div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation Bar -->
+      <nav class="bottom-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <i data-lucide="home"></i>
+          <span class="nav-label">Home</span>
+        </a>
+        <a href="#syllabus" class="nav-item" data-page="syllabus">
+          <i data-lucide="book-marked"></i>
+          <span class="nav-label">Syllabus</span>
+        </a>
+        <a href="#assistant" class="nav-item" data-page="assistant">
+          <i data-lucide="message-square-code"></i>
+          <span class="nav-label">AI Tutor</span>
+        </a>
+        <a href="#playground" class="nav-item" data-page="playground">
+          <i data-lucide="code-2"></i>
+          <span class="nav-label">Code</span>
+        </a>
+        <a href="#placement" class="nav-item" data-page="placement">
+          <i data-lucide="award"></i>
+          <span class="nav-label">Placement</span>
+        </a>
+      </nav>
+
+      <!-- Toast Notifications Layer -->
+      <div class="toast-container" id="toast-container"></div>
+    </div>
+  </div>
+
+  <!-- App Main Core JavaScript (ES6 Module) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
